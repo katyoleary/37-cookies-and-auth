@@ -1,3 +1,5 @@
+'use strict';
+
 //used for signup and login
 
 import React from 'react';

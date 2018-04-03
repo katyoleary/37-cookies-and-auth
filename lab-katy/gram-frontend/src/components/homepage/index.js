@@ -1,3 +1,5 @@
+'use strict';
+
 import React from 'react';
 import { connect } from 'react-redux'; //connect method itself curried function
 import AuthForm from '../auth-form';
