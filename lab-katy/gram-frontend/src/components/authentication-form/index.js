@@ -8,11 +8,13 @@ import * as util from '../../lib/util.js'; //primarily pulling in for class togg
 class AuthenticationForm extends React.Component {
   constructor(props) {
     super(props);
+    //stateful component bc of line below
     this.state = {
+      //initial values set up for state of this component.
       username: '', 
       email: '',
-      password: '',
-      usernameError: null, 
+      password: '', 
+      usernameError: null, //hook 
       passwordError: null, 
       emailError: null, 
       error: null,
@@ -23,6 +25,16 @@ class AuthenticationForm extends React.Component {
   }
 
   handleChange(e) {
+    let { name, value } = e.target;
+    this.setState({
+      [name]: value, //[name] bc its a variable 
+      usernameError: name === 'username' && !value ? 'username required' : null,
+      emailError: name === 'email' && !value ? 'email required' : null, 
+      passwordError: name === 'password' && !value ? 'password required' : null
+    })
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
 
     this.props.onComplete(this.state)
@@ -37,11 +49,11 @@ class AuthenticationForm extends React.Component {
 
   render() {
     return (
-      <form
+      <form 
         onSubmit={this.handleSubmit}
         className='auth-form' >
-
-      {util.renderIf(this.props.auth === 'signup', 
+      
+      {util.renderIf(this.props.authentication === 'signup', 
         <input 
           type='email'
           name='email'
@@ -64,11 +76,13 @@ class AuthenticationForm extends React.Component {
           value={this.state.password}
           onChange={this.handleChange} /> 
 
-        <button type='submit'>{this.props.auth}</button>
+        <button type='submit'>{this.props.authentication}</button>
       
       </form>
     )
+    //for our UI layer, we need username, email and password. for login only username and password
   }
 }
 
 export default AuthenticationForm;
+

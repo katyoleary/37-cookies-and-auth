@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store';
-import Homepage from '../home';
+import Homepage from '../homepage';
 
 let store = appCreateStore();
 

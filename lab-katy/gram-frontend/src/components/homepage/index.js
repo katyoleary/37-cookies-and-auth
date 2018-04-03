@@ -2,9 +2,9 @@
 
 import React from 'react';
 import { connect } from 'react-redux'; //connect method itself curried function
-import AuthForm from '../auth-form';
+import AuthenticationForm from '../authentication-form';
 import * as util from '../../lib/util.js';
-import { signupRequest, loginRequest } from '../../action/auth-actions.js';
+import { signupRequest, loginRequest } from '../../actions/authentication-actions.js';
 
 
 class Homepage extends React.Component {
