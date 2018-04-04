@@ -76,7 +76,7 @@ class AuthenticationForm extends React.Component {
           value={this.state.password}
           onChange={this.handleChange} /> 
 
-        <button type='submit'>{this.props.authentication}</button>
+        <button type='submit'>{this.props.authenticationb}</button>
       
       </form>
     )
