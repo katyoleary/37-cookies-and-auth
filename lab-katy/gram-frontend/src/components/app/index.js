@@ -6,7 +6,7 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import appCreateStore from '../../lib/app-create-store';
 import Homepage from '../homepage';
 import SettingsContainer from '../settings';
-import * as util from '../../lib/util';
+import * as util from '../../lib/util.js';
 import { tokenSet } from '../../actions/authentication-actions';
 
 let store = appCreateStore();

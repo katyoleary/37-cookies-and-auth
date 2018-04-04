@@ -30,7 +30,7 @@ class SettingsContainer extends React.Component {
 
     return (
       <section className='settings-container'>
-        <h2>Profile Settings</h2>
+        <h2>profile settings</h2>
         <ProfileForm  
           buttonText='create profile'
           onComplete={this.handleProfileCreate} />
