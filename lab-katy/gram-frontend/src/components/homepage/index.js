@@ -5,9 +5,18 @@ import { connect } from 'react-redux'; //connect method itself curried function
 import AuthenticationForm from '../authentication-form';
 import * as util from '../../lib/util.js';
 import { signupRequest, loginRequest } from '../../actions/authentication-actions.js';
+import { Link, Redirect } from 'react-router-dom';
+import { userProfileFetchRequest } from '../../actions/profile-actions.js';
 
 
 class Homepage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    
+  }
+
+
   render() {
     let { params } = this.props.match;
     //params is a prop on match object
