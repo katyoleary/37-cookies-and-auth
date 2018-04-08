@@ -26,7 +26,7 @@ class App extends React.Component {
               <Route path='/welcome/:authentication' component={Homepage} />
               <Route exact path='/settings' component={SettingsContainer} />
               <Route exact path='/dashboard' component={DashboardContainer} />
-              <Route exact path='/' component={DashboardContainer} />
+              {/* <Route exact path='/' component={DashboardContainer} /> */}
             </section>
           </BrowserRouter>
       </section>

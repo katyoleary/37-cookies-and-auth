@@ -17,4 +17,4 @@ let AppContainer = () => {
   )
 }
 
-ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<AppContainer />, document.getElementById('root'));
