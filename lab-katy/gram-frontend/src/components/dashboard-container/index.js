@@ -31,7 +31,7 @@ class DashboardContainer extends React.Component {
             .catch(console.error)
           }} />
             
-        {this.props.userPhotos.map(photo =>
+        {this.props.userPhotos.map( photo =>
           <PhotoItem key={photo._id} photo={photo} />
         )}
       </div>
