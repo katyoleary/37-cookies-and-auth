@@ -1,50 +1,46 @@
 'use strict';
 
 import React from 'react';
-import { Provider } from 'react-redux';
+import { connect } from 'react-redux';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
-import appCreateStore from '../../lib/app-create-store';
+
 import Homepage from '../homepage';
 import SettingsContainer from '../settings';
+import DashboardContainer from '../dashboard-container';
 import * as util from '../../lib/util.js';
 import { tokenSet } from '../../actions/authentication-actions';
-
-let store = appCreateStore();
+import { userProfileFetchRequest } from '../../actions/profile-actions';
 
 
 class App extends React.Component {
 
   componentDidMount() {
-    let token = util.readCookie('X-Sluggram-Token');
-    if(token) {
-      this.props.tokenSet(token);
     }
-  }
+  
 
   render() {
     return (
       <section className='gram'>
-        <Provider store={store}>
           <BrowserRouter>
             <section>
-              <header>
-                <h1>gram</h1>
-                  <nav>
-                    <ul>
-                      <li><Link to='/welcome/signup'>signup</Link></li>
-                      <li><Link to='/welcome/login'>login</Link></li>
-                      <li><Link to='/settings'>settings</Link></li>
-                    </ul>
-                  </nav>
-              </header>
               <Route path='/welcome/:authentication' component={Homepage} />
               <Route exact path='/settings' component={SettingsContainer} />
+              <Route exact path='/dashboard' component={DashboardContainer} />
+              {/* <Route exact path='/' component={DashboardContainer} /> */}
             </section>
           </BrowserRouter>
-        </Provider>
       </section>
     )
   }
 }
 
-export default App;
+let mapStateToProps = state => ({
+  profile: state.profile,
+});
+
+let mapDispatchToProps = dispatch => ({
+  tokenSet: token => dispatch(tokenSet(token)),
+  userProfileFetch: () => dispatch(userProfileFetchRequest()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
